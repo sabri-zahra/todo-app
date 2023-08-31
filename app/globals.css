@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,10 +14,53 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
+  background: none;
+  /* color: forestgreen; */
+}
+.link {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  color: blanchedalmond;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  list-style-type: none;
+}
+li {
+  margin: 10px;
+}
+li :local-link {
+  color: white;
+}
+.header {
+  background-color: rgb(63, 63, 232);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-content: flex-start;
+  column-gap: 30px;
+  flex-wrap: wrap;
+  padding: 40px;
+  box-shadow: 0 0 20px var(--pale-text);
+}
+/* span {
+  color: white;
+} */
+.my-link {
+  color: rgb(249, 249, 249);
+  text-decoration: none;
+}
+
+.my-link:hover {
+  text-decoration: underline;
 }
