@@ -6,4 +6,4 @@ export type Todo = {
     date: Date;
   };
   
-  export type InitialTodoState = Todo[];
+  export type InitialTodoState = {todos: Todo[], filteredTodo: Todo[]};

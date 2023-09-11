@@ -18,7 +18,7 @@ type Props = {
 export const UpdateTodoForm = ({ insideModal, todoId }: Props) => {
   const router = useRouter();
   const _ = useAppDispatch();
-  const todo = useAppSelector((state) => (state.todos as Todo[]).find((t) => t.id === todoId));
+  const todo = useAppSelector((state) => (state.todos.todos as Todo[]).find((t) => t.id === todoId));
 
   const { control, handleSubmit } = useForm<UpdateTodoValues>({
     resolver: zodResolver(updateTodoSchema),

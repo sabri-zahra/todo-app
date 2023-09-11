@@ -3,7 +3,7 @@ import type { InitialTodoState, Todo } from './todoType';
 import { AddTodoValues, UpdateTodoValues } from '@/Utils/todo';
 
 
-const initialState: InitialTodoState = [];
+const initialState: InitialTodoState = {todos: [], filteredTodo: []};
 
 export const todoSlice = createSlice({
   name: 'todos',
@@ -11,17 +11,19 @@ export const todoSlice = createSlice({
   reducers: {
     addTodo: (state, action: PayloadAction<AddTodoValues>) => {
       const { description, title } = action.payload;
-      state.unshift({
-        id: state.length + 1,
+      state.todos.unshift({
+        id: state.todos.length + 1,
         title,
         description,
         is_completed: false,
         date: new Date(),
+
       });
+state.filteredTodo = state.todos;
     },
     updateTodo: (state, action: PayloadAction<UpdateTodoValues & { id: number }>) => {
       const { id, title, description, is_completed } = action.payload;
-      state.map((todo) => {
+      state.todos.map((todo) => {
         if (todo.id === id) {
           todo.title = title;
           todo.description = description;
@@ -29,14 +31,20 @@ export const todoSlice = createSlice({
         }
         return todo;
       });
+      state.filteredTodo = state.todos;
     },
     deleteTodo: (state, action: PayloadAction<number>) => {
       const id = action.payload;
-      const itemIndex = state.findIndex((t) => t.id === id);
-      state.splice(itemIndex, 1);
+      const itemIndex = state.todos.findIndex((t) => t.id === id);
+      state.todos.splice(itemIndex, 1);
+      state.filteredTodo = state.todos;
     },
+    filterTodo: (state, action: PayloadAction<Todo[]>) =>
+    {
+state.filteredTodo = action.payload;
+    }
   },
 });
 
-export const { addTodo, updateTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, updateTodo, deleteTodo, filterTodo } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import searchFormReducer from './todo/searchFormSlice';
 import todoReducer from './todo/todoSlice';
 //import themeReducer from './theme/themeSlice';
 
@@ -13,6 +14,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   todos: todoReducer,
+  // searchForm: searchFormReducer
   //theme: themeReducer,
 });
 
@@ -21,10 +23,17 @@ export const presistedReducer = persistReducer(persistConfig, rootReducer);
 const configureAppStore = (preloadedState?: PreloadedState<RootState>) => {
   return configureStore({
     reducer: presistedReducer,
+    devTools: true,
     preloadedState,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
   });
 };
+
+// export const store1 = configureStore({
+//   reducer: {
+//     searchForm: searchFormReducer,
+//   },
+// });
 
 export const store = configureAppStore();
 
