@@ -11,7 +11,9 @@ export default function HomePage() {
     <main >
     <Stack direction='row' alignItems='center' py={2} justifyContent='space-between'>
         <Typography variant='h5'>Your Todos</Typography>
-        <Button component={Link} href='/addTodo' variant='contained'>
+        <Button 
+        sx={{ backgroundColor:  'rgb(63, 63, 232)', '&:hover': { boxShadow: 'none' }, mr: 1 }}
+        component={Link} href='/addTodo' variant='contained'>
           Add New Todo
         </Button>
       </Stack>

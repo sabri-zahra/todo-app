@@ -66,7 +66,7 @@ export const TaskCard = ({ description, date, title, id, is_completed }: Props) 
         </CardContent>
         <CardActions>
           <Button
-            sx={{ boxShadow: 'none', '&:hover': { boxShadow: 'none' }, mr: 1 }}
+            sx={{ boxShadow: 'none', backgroundColor:  'rgb(63, 63, 232)', '&:hover': { boxShadow: 'none' }, mr: 1 }}
             variant='contained'
             size='small'
             component={Link}

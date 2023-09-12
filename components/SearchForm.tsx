@@ -36,16 +36,16 @@ export default function SearchForm() {
     <Box sx={{width: 250,
         height: 35,
         backgroundColor: 'white',
-        borderRadius: 3,
+        borderRadius: 1,
         '&:hover': {
           backgroundColor: 'white.main',
-          opacity: [0.9, 0.8, 0.7],
+          opacity: [0.5, 0.4, 0.6],
         },
 }}>
       
       <TextField
         id="input-with-icon-textfield"
-        label="search your to do"
+        label="search your todo"
        value={inputValue} 
         onChange={handleChange}
         InputProps={{
