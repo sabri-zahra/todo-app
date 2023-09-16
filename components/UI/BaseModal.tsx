@@ -8,8 +8,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import IconButton from '@mui/material/IconButton';
-
-import CloseIcon from '@/assets/icons/close.svg';
+import CloseIcon from '@mui/icons-material/Close';
+// import CloseIcon from '@/assets/icons/close.svg';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiPaper-root': {
