@@ -11,8 +11,8 @@ import {
   useTheme,
 } from '@mui/material';
 import {grey} from "@mui/material/colors"
-import { deleteTodo, useAppDispatch } from '@/store';
-
+import {  useAppDispatch } from '@/store/store';
+import {deleteTodo} from '@/store/todo/todoSlice'
 import { Todo } from '@/types';
 import Link from 'next/link';
 //import { tokens } from '@/utils/constants';
@@ -22,7 +22,7 @@ type Props = Todo & {};
 export const TaskCard = ({ description, date, title, id, is_completed }: Props) => {
   const _ = useAppDispatch();
   const themeMode = useTheme().palette.mode;
-  const CardBgColor = is_completed ? grey[400] : null;
+  const CardBgColor = is_completed ? grey[500] : null;
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>

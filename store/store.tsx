@@ -3,9 +3,10 @@ import { useSelector, useDispatch, TypedUseSelectorHook } from 'react-redux';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import searchFormReducer from './todo/searchFormSlice';
+
 import todoReducer from './todo/todoSlice';
-//import themeReducer from './theme/themeSlice';
+
+import themeReducer from './theme/themeSlice';
 
 const persistConfig = {
   key: 'root',
@@ -15,7 +16,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   todos: todoReducer,
   // searchForm: searchFormReducer
-  //theme: themeReducer,
+  theme: themeReducer,
 });
 
 export const presistedReducer = persistReducer(persistConfig, rootReducer);
@@ -29,12 +30,6 @@ const configureAppStore = (preloadedState?: PreloadedState<RootState>) => {
   });
 };
 
-// export const store1 = configureStore({
-//   reducer: {
-//     searchForm: searchFormReducer,
-//   },
-// });
-
 export const store = configureAppStore();
 
 // typed state and dispatch
@@ -47,4 +42,4 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export { addTodo, updateTodo, deleteTodo } from './todo/todoSlice';
-//export { toggleTheme } from './theme/themeSlice'
+export { toggleTheme } from './theme/themeSlice'

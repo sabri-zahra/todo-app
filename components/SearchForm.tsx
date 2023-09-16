@@ -34,8 +34,7 @@ export default function SearchForm() {
   },[inputValue])
   return (
     <Box sx={{width: 250,
-        height: 35,
-        backgroundColor: 'white',
+        height: 35,        // backgroundColor: 'white',
         borderRadius: 1,
         '&:hover': {
           backgroundColor: 'white.main',
@@ -45,23 +44,19 @@ export default function SearchForm() {
       
       <TextField
         id="input-with-icon-textfield"
-        label="search your todo"
+         label="search your todo"
        value={inputValue} 
         onChange={handleChange}
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start">
+            // <InputAdornment position="start">
               <SearchIcon />
-            </InputAdornment>
+            // </InputAdornment>
           ),
         }}
         variant="standard"
       />
-      {/* <TextField id="filled-basic" label="Filled" variant="filled" /> */}
-      {/* <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-        <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-        <TextField id="input-with-sx" label="With sx" variant="standard" />
-      </Box> */}
+      
     </Box>
   );
 }

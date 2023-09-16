@@ -6,7 +6,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { CssBaseline } from '@mui/material';
 
-//import { ThemeProvider } from '@/theme/themeProvider';
+import { ThemeProvider } from '@/theme/themeProviders';
 import { store } from '../store';
 
 const persister = persistStore(store);
@@ -20,10 +20,10 @@ const Providers: FC<PropsWithChildren> = ({ children }: PropsWithChildren) => {
   return (
     <ReduxProvider store={store}>
       <PersistGate persistor={persister}>
-        {/* <ThemeProvider> */}
+        <ThemeProvider>
           <CssBaseline />
           {children}
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
       </PersistGate>
     </ReduxProvider>
   );
