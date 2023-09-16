@@ -19,7 +19,7 @@ export function renderWithProviders(
     //   theme: {
     //     mode: 'dark',
     //   },
-      todos: [],
+      // todos: [],
     },
     store = configureStore({ reducer: presistedReducer, preloadedState }),
     ...renderOptions
